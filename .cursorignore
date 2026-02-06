@@ -27,3 +27,8 @@ coverage/
 # Supabase local
 supabase/.branches/
 supabase/.temp/
+
+# Local env files
+.env
+.env.*
+!.env.example
