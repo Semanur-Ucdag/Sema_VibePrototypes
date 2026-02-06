@@ -1,0 +1,38 @@
+---
+description: Database patterns for Supabase migrations and seed data
+globs: "supabase/**/*.sql"
+alwaysApply: false
+---
+
+# Database Rules
+
+## File Organization
+- **Migrations:** `supabase/migrations/` - schema changes only
+- **Seed data:** `supabase/seed.sql` - test/development data only
+- Never mix schema changes with seed data in migrations
+
+## Migration Naming
+Use timestamp prefix format: `YYYYMMDDHHMMSS_description.sql`
+
+To generate correct timestamp, run:
+```powershell
+Get-Date -Format "yyyyMMddHHmmss"
+```
+
+Example: `20260206143022_add_appointments_table.sql`
+
+## SQL Standards
+- Use lowercase for SQL keywords (`select`, `create table`, not `SELECT`)
+- Use snake_case for table and column names
+- Always include `created_at` and `updated_at` timestamps
+- Add `id uuid primary key default gen_random_uuid()` for new tables
+
+## Foreign Keys
+- Always define foreign key constraints explicitly
+- Use `on delete cascade` or `on delete set null` intentionally
+- Name constraints descriptively: `fk_appointments_patient_id`
+
+## RLS (Row Level Security)
+- Enable RLS on all tables: `alter table x enable row level security;`
+- Define policies immediately after table creation
+- Test policies don't accidentally block legitimate access

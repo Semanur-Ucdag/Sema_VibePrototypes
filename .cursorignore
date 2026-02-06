@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.nuxt/
+.output/
+dist/
+
+# Nuxt generated
+.data/
+.nitro/
+
+# Lock files (large, not useful for AI context)
+pnpm-lock.yaml
+bun.lock
+package-lock.json
+yarn.lock
+
+# Coverage & test reports
+coverage/
+.nyc_output/
+
+# IDE & OS
+.DS_Store
+*.log
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/

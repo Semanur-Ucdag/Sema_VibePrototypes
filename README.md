@@ -2,143 +2,134 @@
 
 Built with a cutting-edge tech stack focused on performance, developer experience, and user privacy.
 
----
+## Prerequisites
 
-## Tech Stack
+Before setting up the project, install the following on your machine.
 
-### Nuxt 4
+### Node.js v22
 
-**What it is:**  
-Nuxt is a powerful Vue.js framework that enables developers to build server-side rendered (SSR), static, and hybrid web applications. Nuxt 4 is the latest major version, bringing improved performance, better TypeScript support, and a refined developer experience.
+| OS | How to install |
+|----|----------------|
+| **Windows** | [nodejs.org](https://nodejs.org/) installer, or `winget install OpenJS.NodeJS.LTS`, or [nvm-windows](https://github.com/coreybutler/nvm-windows) |
+| **macOS** | [Homebrew](https://brew.sh/): `brew install node`, or [nvm](https://github.com/nvm-sh/nvm): `nvm install 22` |
+| **Linux** | [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm), or your distro’s package manager (e.g. `apt install nodejs`) |
 
-**Why professional developers use it:**
-- **Server-Side Rendering (SSR):** Improves SEO and initial page load times by rendering pages on the server before sending them to the client
-- **File-based routing:** Automatically generates routes based on your file structure, reducing boilerplate code
-- **Auto-imports:** Components, composables, and utilities are automatically imported, keeping code clean
-- **Hybrid rendering:** Choose between SSR, SSG (Static Site Generation), or client-side rendering on a per-route basis
-- **Built-in optimizations:** Code splitting, lazy loading, and image optimization come out of the box
-- **Strong ecosystem:** Extensive module system with official and community modules for common functionality
+### Package manager: Bun
 
----
+This project uses **Bun** as the package manager (see `packageManager` in `package.json`).
 
-### Nuxt UI
+| OS | How to install Bun |
+|----|--------------------|
+| **Windows** | `powershell -c "irm bun.sh/install.ps1 \| iex"` |
+| **macOS** | `curl -fsSL https://bun.sh/install \| bash` |
+| **Linux** | `curl -fsSL https://bun.sh/install \| bash` |
 
-**What it is:**  
-Nuxt UI is the official UI library for Nuxt applications. It provides a comprehensive collection of fully-styled, accessible, and customizable components built on top of Reka and Tailwind CSS.
+Verify with: `bun --version`.
 
-**Why professional developers use it:**
-- **Production-ready components:** Buttons, forms, modals, tables, and 50+ other components ready to use
-- **Accessibility first:** All components follow WAI-ARIA guidelines and support keyboard navigation
-- **Dark mode support:** Built-in dark mode that works seamlessly with Tailwind CSS
-- **Highly customizable:** Components can be styled and configured globally or individually via props
-- **Tight Nuxt integration:** Designed specifically for Nuxt, ensuring optimal performance and DX
-- **Consistent design system:** Provides a cohesive look and feel across the entire application
-- **Reduced development time:** No need to build common UI patterns from scratch
+### Docker (required for local Supabase)
 
----
+Supabase runs locally via Docker. Install Docker Desktop (or Docker Engine + Docker Compose).
 
-### Tailwind CSS
+| OS | How to install |
+|----|----------------|
+| **Windows** | [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/) (WSL2 backend recommended) |
+| **macOS** | [Docker Desktop for Mac](https://docs.docker.com/desktop/install/mac-install/) (Apple Silicon or Intel) |
+| **Linux** | [Docker Engine](https://docs.docker.com/engine/install/) + [Docker Compose](https://docs.docker.com/compose/install/) for your distro |
 
-**What it is:**  
-Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom designs directly in your markup. Instead of writing custom CSS, you compose styles using predefined classes.
+Ensure Docker is running before starting Supabase.
 
-**Why professional developers use it:**
-- **Rapid development:** Build complex UIs quickly without leaving your Vue templates
-- **Design consistency:** Predefined spacing, colors, and typography scales ensure visual consistency
-- **No CSS bloat:** Only the classes you use are included in the final build (via PurgeCSS)
-- **Responsive design:** Built-in responsive modifiers (`sm:`, `md:`, `lg:`, etc.) make mobile-first design effortless
-- **Customizable design system:** Easily configure colors, fonts, spacing, and more`
-- **No naming conflicts:** Utility classes eliminate the need to invent class names or deal with CSS specificity issues
-- **Great documentation:** Comprehensive docs with examples for every utility class
-- **Industry adoption:** Used by companies like GitHub, Netflix, and Shopify
+### Supabase CLI
 
----
+Used to run the local database, apply migrations, and open Studio.
 
-### Supabase
+| OS | How to install |
+|----|----------------|
+| **Windows** | `scoop bucket add supabase https://github.com/supabase/scoop-bucket.git` then `scoop install supabase`, or `npm install -g supabase` |
+| **macOS** | `brew install supabase/tap/supabase` or `npm install -g supabase` |
+| **Linux** | [Install script](https://supabase.com/docs/guides/cli/getting-started#install-the-supabase-cli) or `npm install -g supabase` |
 
-**What it is:**  
-Supabase is an open-source Firebase alternative that provides a complete backend-as-a-service platform. It offers a PostgreSQL database, real-time subscriptions, authentication, storage, and edge functions.
-
-**Why professional developers use it:**
-- **PostgreSQL power:** Full-featured relational database with SQL support, joins, and complex queries
-- **Real-time subscriptions:** Listen to database changes in real-time for live updates
-- **Row Level Security (RLS):** Fine-grained access control at the database level for robust security
-- **Auto-generated APIs:** RESTful and GraphQL APIs are automatically generated from your database schema
-- **Built-in authentication:** Supports email/password, OAuth providers, and magic links
-- **Storage solution:** Manage and serve files with built-in CDN support
-- **Edge Functions:** Run serverless TypeScript functions close to your users
-- **Open source:** Self-host if needed, no vendor lock-in
-- **Scalability:** Handles everything from MVPs to enterprise applications
-- **Privacy compliance:** Important for health data—can be self-hosted for full data control
-
----
-
-### Clerk
-
-**What it is:**  
-Clerk is a complete user management and authentication platform. It provides pre-built UI components, APIs, and admin dashboards for handling user sign-up, sign-in, profile management, and session handling.
-
-**Why professional developers use it:**
-- **Drop-in authentication:** Pre-built, customizable sign-in/sign-up components that work out of the box
-- **Multi-factor authentication (MFA):** Built-in support for TOTP, SMS, and backup codes
-- **Social login:** One-click integration with Google, GitHub, Apple, and 20+ OAuth providers
-- **Session management:** Secure session handling with automatic token refresh
-- **User management dashboard:** Admin panel to manage users, view analytics, and handle support issues
-- **Webhooks:** React to user events (sign-ups, deletions, etc.) in your backend
-- **HIPAA compliance ready:** Essential for mental health applications handling sensitive user data
-- **Role-based access control:** Define roles and permissions for different user types
-- **Embeddable components:** Beautiful, accessible UI components that match your brand
-- **SDKs for all frameworks:** First-class support for Nuxt/Vue, React, and more
-
----
-
-## Why This Stack?
-
-This technology combination was chosen specifically for building a mental health dashboard:
-
-| Requirement | Solution |
-|-------------|----------|
-| **Performance** | Nuxt 4 SSR + Edge rendering |
-| **Beautiful UI** | Nuxt UI + Tailwind CSS |
-| **Data Security** | Supabase RLS + Clerk authentication |
-| **Real-time Updates** | Supabase real-time subscriptions |
-| **HIPAA Considerations** | Clerk compliance features + Supabase self-hosting option |
-| **Developer Productivity** | Full-stack TypeScript, auto-imports, pre-built components |
-| **Scalability** | Serverless architecture, managed services |
+Verify with: `supabase --version`.
 
 ---
 
 ## Getting Started
 
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd MentalCareGroup
+```
+
+### 2. Environment variables
+
+Copy the example env file and fill in values (for local dev, the defaults point to the local Supabase instance):
+
+```bash
+# Windows (PowerShell)
+copy .env.example .env
+
+# macOS / Linux
+cp .env.example .env
+```
+
+Edit `.env` if you need to change URLs or keys (see [Environment Variables](#environment-variables) below).
+
+### 3. Start the local database (Supabase)
+
+From the project root, start Supabase (requires Docker to be running):
+
+```bash
+supabase start
+```
+
+On first run this can take a few minutes. When it finishes, you’ll see local URLs and keys. Use these in `.env` if you’re not already using the defaults from `.env.example`.
+
+- **Studio (DB UI):** `http://127.0.0.1:54323`
+- **anon key** and **service_role key** are printed in the terminal; put them in `NUXT_PUBLIC_SUPABASE_KEY` and `NUXT_SUPABASE_SECRET_KEY` if they differ from `.env.example`.
+
+Migrations in `supabase/migrations/` are applied automatically when you run `supabase start`. To reset the DB and re-run migrations and seeds:
+
+```bash
+supabase db reset
+```
+
+### 4. Install dependencies and run the app
+
 ```bash
 # Install dependencies
-npm install
+bun install
 
-# Start development server
-npm run dev
+# Start the development server
+bun run dev
+```
 
-# Build for production
-npm run build
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Other commands
+
+```bash
+# Lint
+bun run lint
+
+# Type check
+bun run typecheck
+
+# Production build
+bun run build
 
 # Preview production build
-npm run preview
+bun run preview
 ```
 
 ---
 
-## Environment Variables
+## Database (Supabase)
 
-Create a `.env` file in the root directory:
-
-```env
-# Supabase
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_anon_key
-
-# Clerk
-CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-CLERK_SECRET_KEY=your_clerk_secret_key
-```
+- **Local:** `supabase start` runs PostgreSQL, Auth, Studio, etc. in Docker.
+- **Migrations:** Stored in `supabase/migrations/`. Applied automatically on `supabase start`; use `supabase db reset` to reapply from scratch (including `supabase/seed.sql`).
+- **Studio:** After `supabase start`, open [http://127.0.0.1:54323](http://127.0.0.1:54323) to manage data and run SQL.
+- **Stop local Supabase:** `supabase stop`
 
 ---
 
@@ -152,15 +143,12 @@ CLERK_SECRET_KEY=your_clerk_secret_key
 │   ├── pages/          # File-based routing
 │   └── utils/          # Utility functions
 ├── server/
-│   ├── api/            # Server API routes
-│   └── middleware/     # Server middleware
+│   └── api/            # Server API routes
+├── supabase/
+│   ├── migrations/     # Database migrations
+│   ├── config.toml     # Local Supabase config
+│   └── seed.sql        # Seed data (optional)
 ├── public/             # Static assets
 ├── nuxt.config.ts      # Nuxt configuration
-└── tailwind.config.ts  # Tailwind configuration
+└── .env                # Environment variables (create from .env.example)
 ```
-
----
-
-## License
-
-[MIT](LICENSE)

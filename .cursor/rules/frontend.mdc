@@ -1,0 +1,41 @@
+---
+description: Frontend patterns for Nuxt, Vue, and UI components
+globs: "app/**/*.{vue,ts}"
+alwaysApply: false
+---
+
+# Frontend Rules
+
+## UI Components
+- **Always use Nuxt UI components** (`<UButton>`, `<UInput>`, `<UModal>`, etc.)
+- Only use raw Tailwind when Nuxt UI doesn't provide the component
+- Use Lucide icons via `@iconify-json/lucide` (e.g., `icon="i-lucide-plus"`)
+
+## Colors - CRITICAL
+Never use raw Tailwind colors or hex values. Use Nuxt UI's semantic system:
+
+```vue
+<!-- ❌ WRONG -->
+<span class="text-blue-500">
+<div class="bg-gray-100">
+
+<!-- ✅ CORRECT -->
+<span class="text-primary">
+<div class="bg-muted">
+```
+
+**Semantic colors:** `primary`, `secondary`, `success`, `info`, `warning`, `error`
+**Text:** `text-dimmed`, `text-muted`, `text-toned`, `text-default`, `text-highlighted`
+**Backgrounds:** `bg-default`, `bg-muted`, `bg-elevated`, `bg-accented`, `bg-inverted`
+**Borders:** `border-default`, `border-muted`, `border-accented`
+
+## Nuxt Patterns
+- Use `useFetch` or `useAsyncData` for data fetching, not raw `fetch`
+- Use `useState` for shared reactive state across components
+- Handle loading and error states in UI
+- Use `.client.vue` / `.server.vue` suffixes appropriately
+
+## Vue
+- Use `<script setup lang="ts">` syntax
+- Define props with `defineProps<T>()` and emit with `defineEmits<T>()`
+- Use composables for reusable logic (place in `composables/`)

@@ -1,0 +1,31 @@
+---
+description: Backend and API patterns for Nuxt server routes
+globs: "server/**/*.ts"
+alwaysApply: false
+---
+
+# Backend Rules
+
+## API Routes
+- Place routes in `server/api/` following RESTful naming
+- Use `defineEventHandler` for all handlers
+- Return consistent response shapes: `{ data }` or `{ error }`
+
+## Error Handling
+- Use `createError` from H3 for API errors with proper status codes
+- Never expose internal error details to clients
+- Log errors server-side before returning sanitized response
+
+## Validation
+- Validate all incoming request bodies with Zod
+- Use `readValidatedBody` or validate early in handler
+
+## Security
+- Never trust client input - always validate/sanitize
+- Don't expose sensitive env vars in responses
+- Use proper HTTP methods (GET for reads, POST/PUT/PATCH for writes, DELETE for removal)
+
+## Supabase
+- Use server-side Supabase client for sensitive operations
+- Don't expose service role key to client
+- Handle Supabase errors explicitly, don't let them bubble raw

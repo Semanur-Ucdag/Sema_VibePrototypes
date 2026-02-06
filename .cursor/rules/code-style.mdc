@@ -1,0 +1,25 @@
+---
+description: General code style and TypeScript standards
+alwaysApply: true
+---
+
+# Code Style
+
+## Console Statements
+- Remove `console.log`, `console.warn`, `console.error` unless actively debugging
+- Use proper logging service for production code
+
+## TypeScript
+- Fix all TypeScript errors immediately - do not ignore or use `@ts-ignore`
+- Define explicit types for function parameters and return values
+- Use `interface` for object shapes, `type` for unions/intersections
+
+## Imports
+- Use absolute imports with `~/` or `@/` prefix
+- Group imports: external packages → internal modules → types
+- Remove unused imports
+
+## General
+- Prefer `const` over `let`, never use `var`
+- Use early returns to reduce nesting
+- Keep functions under 50 lines - extract helpers if needed
