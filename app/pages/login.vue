@@ -6,6 +6,7 @@ definePageMeta({
   layout: 'auth'
 })
 
+const supabase = useSupabaseClient()
 const toast = useToast()
 
 const fields: AuthFormField[] = [
@@ -38,22 +39,28 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
   loading.value = true
 
   try {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    const { error } = await supabase.auth.signInWithPassword({
+      email: payload.data.email,
+      password: payload.data.password
+    })
+
+    if (error) {
+      throw error
+    }
 
     toast.add({
-      title: 'Success',
-      description: 'You have been logged in successfully.',
+      title: 'Welkom terug!',
+      description: 'Je bent succesvol ingelogd.',
       color: 'success'
     })
 
     // Navigate to dashboard after successful login
     await navigateTo('/')
   }
-  catch {
+  catch (error: any) {
     toast.add({
-      title: 'Error',
-      description: 'Invalid credentials. Please try again.',
+      title: 'Inloggen mislukt',
+      description: error.message || 'Ongeldige inloggegevens. Probeer het opnieuw.',
       color: 'error'
     })
   }
