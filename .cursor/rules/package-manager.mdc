@@ -1,0 +1,12 @@
+---
+description: Use bun as the only package manager for this project
+alwaysApply: true
+---
+
+# Package Manager
+
+- **Always use bun** for all package management and script execution
+- Do not use npm, pnpm, yarn, or any other package manager
+- Use `bun install` instead of `npm install`, `pnpm install`, or `yarn`
+- Use `bun run` for scripts (e.g. `bun run dev`, `bun run build`)
+- Use `bun add` / `bun remove` for adding or removing dependencies
