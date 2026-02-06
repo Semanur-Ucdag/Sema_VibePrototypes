@@ -7,16 +7,6 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase'
   ],
 
-  supabase: {
-    redirectOptions: {
-      login: '/login',
-      callback: '/confirm',
-      include: undefined,
-      exclude: ['/login'],
-      saveRedirectToCookie: true
-    }
-  },
-
   devtools: {
     enabled: true
   },
@@ -38,5 +28,18 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      include: undefined,
+      exclude: ['/login'],
+      saveRedirectToCookie: true
+    },
+    url: process.env.NUXT_PUBLIC_SUPABASE_URL,
+    key: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+    secretKey: process.env.NUXT_SUPABASE_SECRET_KEY
   }
 })
