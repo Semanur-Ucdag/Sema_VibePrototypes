@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import * as z from 'zod'
+
+useHead({ title: 'Security' })
 import type { FormError } from '@nuxt/ui'
 
 const passwordSchema = z.object({

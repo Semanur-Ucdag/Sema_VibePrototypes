@@ -1,22 +1,29 @@
 <script setup lang="ts">
 import { format, isToday } from 'date-fns'
+import type { ComponentPublicInstance } from 'vue'
 import type { Mail } from '~/types'
 
 const props = defineProps<{
   mails: Mail[]
 }>()
 
-const mailsRefs = ref<Element[]>([])
+const mailsRefs = ref<Record<number, Element>>({})
 
 const selectedMail = defineModel<Mail | null>()
+
+function setMailRef(id: number, el: Element | ComponentPublicInstance | null): void {
+  if (el instanceof HTMLElement) {
+    mailsRefs.value[id] = el
+  }
+}
 
 watch(selectedMail, () => {
   if (!selectedMail.value) {
     return
   }
-  const ref = mailsRefs.value[selectedMail.value.id]
-  if (ref) {
-    ref.scrollIntoView({ block: 'nearest' })
+  const mailRef = mailsRefs.value[selectedMail.value.id]
+  if (mailRef) {
+    mailRef.scrollIntoView({ block: 'nearest' })
   }
 })
 
@@ -47,7 +54,7 @@ defineShortcuts({
     <div
       v-for="(mail, index) in mails"
       :key="index"
-      :ref="(el: Element) => { mailsRefs[mail.id] = el }"
+      :ref="(el) => setMailRef(mail.id, el)"
     >
       <div
         class="p-4 sm:px-6 text-sm cursor-pointer border-l-2 transition-colors"

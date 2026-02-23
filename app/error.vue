@@ -6,7 +6,7 @@ defineProps<{
 }>()
 
 useSeoMeta({
-  title: 'Page not found',
+  title: 'MentalCareGroup | Page not found',
   description: 'We are sorry but this page could not be found.'
 })
 

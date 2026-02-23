@@ -6,6 +6,8 @@ definePageMeta({
   layout: 'auth'
 })
 
+useHead({ title: 'Sign in' })
+
 const supabase = useSupabaseClient()
 const toast = useToast()
 
@@ -56,15 +58,17 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
 
     // Navigate to dashboard after successful login
     await navigateTo('/')
-  }
-  catch (error: any) {
+  } catch (error: unknown) {
+    const description = error instanceof Error
+      ? error.message
+      : 'Invalid credentials. Please try again.'
+
     toast.add({
-      title: 'Inloggen mislukt',
-      description: error.message || 'Ongeldige inloggegevens. Probeer het opnieuw.',
+      title: 'Sign in failed',
+      description,
       color: 'error'
     })
-  }
-  finally {
+  } finally {
     loading.value = false
   }
 }

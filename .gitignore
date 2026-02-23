@@ -25,3 +25,6 @@ logs
 
 # VSC
 .history
+
+# Local operational notes (keep untracked)
+docs/supabase-switching-local.md

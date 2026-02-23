@@ -9,7 +9,7 @@ alwaysApply: false
 ## UI Components
 - **Always use Nuxt UI components** (`<UButton>`, `<UInput>`, `<UModal>`, etc.)
 - Only use raw Tailwind when Nuxt UI doesn't provide the component
-- Use Lucide icons via `@iconify-json/lucide` (e.g., `icon="i-lucide-plus"`)
+- Use **Lucide icons** for all UI (`icon="i-lucide-plus"`). Use **Simple Icons** only for company/brand logos (e.g., `icon="i-simple-icons-nuxt"`). Company logos in assets (e.g., Mental Care Group) stay as SVG files.
 
 ## Colors - CRITICAL
 Never use raw Tailwind colors or hex values. Use Nuxt UI's semantic system:
@@ -34,6 +34,14 @@ Never use raw Tailwind colors or hex values. Use Nuxt UI's semantic system:
 - Use `useState` for shared reactive state across components
 - Handle loading and error states in UI
 - Use `.client.vue` / `.server.vue` suffixes appropriately
+
+## Animations
+- **Always use Tailwind and/or the project animation libraries** unless it cannot be avoided
+- **Preferred stack:** Tailwind (including `tailwindcss-motion`), **@formkit/auto-animate**, and **motion-v**
+- Use **@formkit/auto-animate** for list/item enter/leave and layout transitions (wrap the animated container with `AutoAnimate` or use the directive)
+- Use **motion-v** (Nuxt module `motion-v/nuxt`) for orchestrated animations, scroll-driven effects, and Vue-friendly motion primitives
+- Use **Tailwind** for one-off utilities (e.g. `animate-*`, `transition-*`) and when the animation is simple and class-based
+- Only use raw CSS `@keyframes` or other animation approaches when Tailwind and these libraries cannot achieve the effect
 
 ## Vue
 - Use `<script setup lang="ts">` syntax

@@ -2,17 +2,41 @@
 @import "@nuxt/ui";
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'Inter', 'Public Sans', sans-serif;
 
-  --color-green-50: #EFFDF5;
-  --color-green-100: #D9FBE8;
-  --color-green-200: #B3F5D1;
-  --color-green-300: #75EDAE;
-  --color-green-400: #00DC82;
-  --color-green-500: #00C16A;
-  --color-green-600: #00A155;
-  --color-green-700: #007F45;
-  --color-green-800: #016538;
-  --color-green-900: #0A5331;
-  --color-green-950: #052E16;
+
+
+  /* Primary palette shifted one step darker. */
+  --color-brand-50: #E5F0F9;
+  --color-brand-100: #C4E0F3;
+  --color-brand-200: #91C7E8;
+  --color-brand-300: #56AADA;
+  --color-brand-400: #308FC7;
+  --color-brand-500: #2072A9;
+  --color-brand-600: #1A5782;
+  --color-brand-700: #1A4E72;
+  --color-brand-800: #1B425F;
+  --color-brand-900: #122A3F;
+  --color-brand-950: #122A3F;
+
+  /* Secondary palette shifted one step darker. */
+  --color-secondary-50: #FAE9F3;
+  --color-secondary-100: #F7D3E6;
+  --color-secondary-200: #F2AFD2;
+  --color-secondary-300: #E97DB3;
+  --color-secondary-400: #DE5697;
+  --color-secondary-500: #CF4580;
+  --color-secondary-600: #B0265D;
+  --color-secondary-700: #91234D;
+  --color-secondary-800: #7A2143;
+  --color-secondary-900: #4A0D24;
+  --color-secondary-950: #4A0D24;
+}
+
+:root {
+  --ui-radius: 0.75rem;
+}
+
+html {
+  background-color: #f5f6f8;
 }

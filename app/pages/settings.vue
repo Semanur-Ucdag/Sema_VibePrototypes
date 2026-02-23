@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+useHead({ title: 'Settings' })
+
 const links = [[{
   label: 'General',
   icon: 'i-lucide-user',
@@ -20,7 +22,7 @@ const links = [[{
   to: '/settings/security'
 }], [{
   label: 'Documentation',
-  icon: 'i-lucide-book-open',
+  icon: 'i-simple-icons-nuxt',
   to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
   target: '_blank'
 }]] satisfies NavigationMenuItem[][]

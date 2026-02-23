@@ -1,116 +1,129 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const route = useRoute()
-const toast = useToast()
-
 const open = ref(false)
+const { accountType } = useCurrentUser()
 
-const links = [[{
-  label: 'Home',
+const therapistLinks = [{
+  label: 'Dashboard',
   icon: 'i-lucide-house',
   to: '/',
   onSelect: () => {
     open.value = false
   }
 }, {
-  label: 'Inbox',
-  icon: 'i-lucide-inbox',
-  to: '/inbox',
+  label: 'Agenda',
+  icon: 'i-lucide-calendar',
+  to: '/agenda',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: 'Tasks',
+  icon: 'i-lucide-square-check-big',
+  to: '/tasks',
   badge: '4',
   onSelect: () => {
     open.value = false
   }
 }, {
-  label: 'Customers',
-  icon: 'i-lucide-users',
-  to: '/customers',
+  label: 'Caseloads',
+  icon: 'i-lucide-briefcase-medical',
+  to: '/caseloads',
   onSelect: () => {
     open.value = false
   }
 }, {
-  label: 'Settings',
-  to: '/settings',
-  icon: 'i-lucide-settings',
-  defaultOpen: true,
-  type: 'trigger',
-  children: [{
-    label: 'General',
-    to: '/settings',
-    exact: true,
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'Members',
-    to: '/settings/members',
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'Notifications',
-    to: '/settings/notifications',
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'Security',
-    to: '/settings/security',
-    onSelect: () => {
-      open.value = false
-    }
-  }]
-}], [{
-  label: 'Feedback',
-  icon: 'i-lucide-message-circle',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
-  target: '_blank'
-}, {
-  label: 'Help & Support',
-  icon: 'i-lucide-info',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
-  target: '_blank'
-}]] satisfies NavigationMenuItem[][]
-
-const groups = computed(() => [{
-  id: 'links',
-  label: 'Go to',
-  items: links.flat()
-}, {
-  id: 'code',
-  label: 'Code',
-  items: [{
-    id: 'source',
-    label: 'View page source',
-    icon: 'i-simple-icons-github',
-    to: `https://github.com/nuxt-ui-templates/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
-    target: '_blank'
-  }]
-}])
-
-onMounted(async () => {
-  const cookie = useCookie('cookie-consent')
-  if (cookie.value === 'accepted') {
-    return
+  label: 'Chats',
+  icon: 'i-lucide-message-square',
+  to: '/chats',
+  badge: '1',
+  onSelect: () => {
+    open.value = false
   }
+}, {
+  label: 'Insights',
+  icon: 'i-lucide-chart-column',
+  to: '/insights',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: 'Knowledge Hub',
+  icon: 'i-lucide-book-open',
+  to: '/knowledge-hub',
+  onSelect: () => {
+    open.value = false
+  }
+}] satisfies NavigationMenuItem[]
 
-  toast.add({
-    title: 'We use first-party cookies to enhance your experience on our website.',
-    duration: 0,
-    close: false,
-    actions: [{
-      label: 'Accept',
-      color: 'neutral',
-      variant: 'outline',
-      onClick: () => {
-        cookie.value = 'accepted'
-      }
-    }, {
-      label: 'Opt out',
-      color: 'neutral',
-      variant: 'ghost'
-    }]
-  })
+const clientLinks = [{
+  label: 'Dashboard',
+  icon: 'i-lucide-house',
+  to: '/',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: 'Sessions',
+  icon: 'i-lucide-clapperboard',
+  to: '/sessions',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: 'Agenda',
+  icon: 'i-lucide-calendar',
+  to: '/agenda',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: 'Tasks',
+  icon: 'i-lucide-square-check-big',
+  to: '/tasks',
+  badge: '4',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: 'Chats',
+  icon: 'i-lucide-message-square',
+  to: '/chats',
+  badge: '1',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: 'Insights',
+  icon: 'i-lucide-chart-column',
+  to: '/insights',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: 'Knowledge Hub',
+  icon: 'i-lucide-book-open',
+  to: '/knowledge-hub',
+  onSelect: () => {
+    open.value = false
+  }
+}] satisfies NavigationMenuItem[]
+
+const commonLinks = [{
+  label: 'Settings',
+  icon: 'i-lucide-settings',
+  to: '/settings',
+  onSelect: () => {
+    open.value = false
+  }
+}] satisfies NavigationMenuItem[]
+
+const links = computed<NavigationMenuItem[][]>(() => {
+  return [
+    accountType.value === 'client' ? clientLinks : therapistLinks,
+    commonLinks
+  ]
 })
 </script>
 
@@ -121,16 +134,26 @@ onMounted(async () => {
       v-model:open="open"
       collapsible
       resizable
-      class="bg-elevated/25"
       :ui="{ footer: 'lg:border-t lg:border-default' }"
     >
       <template #header="{ collapsed }">
-        <TeamsMenu :collapsed="collapsed" />
+        <div class="w-full flex justify-center">
+          <img
+            v-if="collapsed"
+            src="/svgs/mental-care-group-small.svg"
+            alt="Mental Care Group"
+            class="size-9"
+          >
+          <img
+            v-else
+            src="/svgs/mental-care-group-full.svg"
+            alt="Mental Care Group"
+            class="h-9 w-auto"
+          >
+        </div>
       </template>
 
       <template #default="{ collapsed }">
-        <UDashboardSearchButton :collapsed="collapsed" class="bg-transparent ring-default" />
-
         <UNavigationMenu
           :collapsed="collapsed"
           :items="links[0]"
@@ -149,11 +172,16 @@ onMounted(async () => {
       </template>
 
       <template #footer="{ collapsed }">
-        <UserMenu :collapsed="collapsed" />
+        <TherapistSupportCard v-if="!collapsed" />
+        <UButton
+          v-else
+          color="neutral"
+          variant="ghost"
+          square
+          icon="i-lucide-life-buoy"
+        />
       </template>
     </UDashboardSidebar>
-
-    <UDashboardSearch :groups="groups" />
 
     <slot />
 

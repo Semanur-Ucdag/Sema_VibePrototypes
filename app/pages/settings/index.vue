@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import * as z from 'zod'
+
+useHead({ title: 'Profile' })
 import type { FormSubmitEvent } from '@nuxt/ui'
 
 const fileRef = ref<HTMLInputElement>()

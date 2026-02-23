@@ -1,4 +1,6 @@
 <script setup lang="ts">
+useHead({ title: 'Notifications' })
+
 const state = reactive<{ [key: string]: boolean }>({
   email: true,
   desktop: false,
