@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import * as z from 'zod'
+import type { FormError } from '@nuxt/ui'
 
 useHead({ title: 'Security' })
-import type { FormError } from '@nuxt/ui'
 
 const passwordSchema = z.object({
   current: z.string().min(8, 'Must be at least 8 characters'),

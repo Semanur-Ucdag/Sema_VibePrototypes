@@ -4,8 +4,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
-    '@vueuse/nuxt',
-    '@nuxtjs/supabase'
+    '@vueuse/nuxt'
   ],
 
   devtools: {
@@ -72,18 +71,5 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
-  },
-
-  supabase: {
-    redirectOptions: {
-      login: '/auth/sign-in',
-      callback: '/confirm',
-      include: undefined,
-      exclude: [],
-      saveRedirectToCookie: true
-    },
-    url: process.env.NUXT_PUBLIC_SUPABASE_URL,
-    key: process.env.NUXT_PUBLIC_SUPABASE_KEY,
-    secretKey: process.env.NUXT_SUPABASE_SECRET_KEY
   }
 })

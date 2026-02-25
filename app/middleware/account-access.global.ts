@@ -15,19 +15,18 @@ function isPublicPath(path: string): boolean {
 }
 
 export default defineNuxtRouteMiddleware(async (to) => {
+  const { accountType, isAuthenticated, refreshProfile } = useCurrentUser()
+  await refreshProfile()
+
   if (isPublicPath(to.path)) {
+    if (to.path.startsWith('/auth') && isAuthenticated.value) {
+      return navigateTo('/')
+    }
     return
   }
 
-  const user = useSupabaseUser()
-  if (!user.value) {
-    return
-  }
-
-  const { accountType, refreshProfile } = useCurrentUser()
-
-  if (!accountType.value) {
-    await refreshProfile()
+  if (!isAuthenticated.value) {
+    return navigateTo('/auth/sign-in')
   }
 
   if (accountType.value === 'client') {

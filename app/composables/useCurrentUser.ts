@@ -3,6 +3,15 @@ import { createSharedComposable } from '@vueuse/core'
 type UserRole = 'patient' | 'therapist' | 'admin'
 type AccountType = 'client' | 'therapist'
 
+interface AuthUser {
+  id: string
+  email: string
+  fullName: string
+  role: UserRole
+  avatarUrl: string | null
+  accountType: AccountType
+}
+
 interface ProfileRow {
   id: string
   email: string
@@ -34,49 +43,45 @@ function mapRoleToAccountType(role: UserRole | null): AccountType | null {
 }
 
 const _useCurrentUser = () => {
-  const supabase = useSupabaseClient()
-  const user = useSupabaseUser()
+  const user = useState<AuthUser | null>('current-auth-user', () => null)
+  const hasInitialized = useState<boolean>('current-auth-initialized', () => false)
 
   const profile = useState<ProfileRow | null>('current-user-profile', () => null)
   const isLoadingProfile = useState<boolean>('current-user-profile-loading', () => false)
   const profileError = useState<string | null>('current-user-profile-error', () => null)
 
   async function refreshProfile(): Promise<void> {
-    const userId = user.value?.id
-
-    if (!userId) {
-      profile.value = null
-      profileError.value = null
-      return
-    }
-
     isLoadingProfile.value = true
     profileError.value = null
 
-    const { data, error } = await supabase
-      .from('profiles')
-      .select('id, email, full_name, role, avatar_url')
-      .eq('id', userId)
-      .maybeSingle<ProfileRow>()
-
-    if (error) {
+    try {
+      const response = await $fetch<{ data: { user: AuthUser | null } }>('/api/auth/me', {
+        method: 'GET'
+      })
+      user.value = response.data.user
+      profile.value = response.data.user
+        ? {
+            id: response.data.user.id,
+            email: response.data.user.email,
+            full_name: response.data.user.fullName,
+            role: response.data.user.role,
+            avatar_url: response.data.user.avatarUrl
+          }
+        : null
+      hasInitialized.value = true
+    } catch (error: unknown) {
+      user.value = null
       profile.value = null
-      profileError.value = error.message
+      profileError.value = error instanceof Error ? error.message : 'Failed to fetch user profile'
+      hasInitialized.value = true
+    } finally {
       isLoadingProfile.value = false
-      return
     }
-
-    profile.value = data
-    isLoadingProfile.value = false
   }
 
-  watch(
-    () => user.value?.id,
-    async () => {
-      await refreshProfile()
-    },
-    { immediate: true }
-  )
+  if (!hasInitialized.value) {
+    void refreshProfile()
+  }
 
   const role = computed<UserRole | null>(() => {
     const profileRole = parseRole(profile.value?.role)
@@ -84,9 +89,9 @@ const _useCurrentUser = () => {
       return profileRole
     }
 
-    const metadataRole = parseRole(user.value?.user_metadata?.role)
-    if (metadataRole) {
-      return metadataRole
+    const userRole = parseRole(user.value?.role)
+    if (userRole) {
+      return userRole
     }
 
     return null
@@ -94,8 +99,8 @@ const _useCurrentUser = () => {
 
   const accountType = computed<AccountType | null>(() => mapRoleToAccountType(role.value))
   const email = computed<string | null>(() => profile.value?.email ?? user.value?.email ?? null)
-  const fullName = computed<string | null>(() => profile.value?.full_name ?? null)
-  const avatarUrl = computed<string | null>(() => profile.value?.avatar_url ?? null)
+  const fullName = computed<string | null>(() => profile.value?.full_name ?? user.value?.fullName ?? null)
+  const avatarUrl = computed<string | null>(() => profile.value?.avatar_url ?? user.value?.avatarUrl ?? null)
   const isAuthenticated = computed<boolean>(() => !!user.value)
   const isTherapist = computed<boolean>(() => accountType.value === 'therapist')
   const isClient = computed<boolean>(() => accountType.value === 'client')

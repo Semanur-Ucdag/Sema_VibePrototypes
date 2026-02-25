@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import * as z from 'zod'
+import type { FormSubmitEvent } from '@nuxt/ui'
 
 useHead({ title: 'Profile' })
-import type { FormSubmitEvent } from '@nuxt/ui'
 
 const fileRef = ref<HTMLInputElement>()
 
@@ -24,14 +24,14 @@ const profile = reactive<Partial<ProfileSchema>>({
   bio: undefined
 })
 const toast = useToast()
-async function onSubmit(event: FormSubmitEvent<ProfileSchema>) {
+async function onSubmit(_event: FormSubmitEvent<ProfileSchema>) {
   toast.add({
     title: 'Success',
     description: 'Your settings have been updated.',
     icon: 'i-lucide-check',
     color: 'success'
   })
-  console.log(event.data)
+  void _event
 }
 
 function onFileChange(e: Event) {

@@ -8,8 +8,8 @@ definePageMeta({
 
 useHead({ title: 'Sign in' })
 
-const supabase = useSupabaseClient()
 const toast = useToast()
+const { refreshProfile } = useCurrentUser()
 
 const fields: AuthFormField[] = [
   {
@@ -41,14 +41,14 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
   loading.value = true
 
   try {
-    const { error } = await supabase.auth.signInWithPassword({
-      email: payload.data.email,
-      password: payload.data.password
+    await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: {
+        email: payload.data.email,
+        password: payload.data.password
+      }
     })
-
-    if (error) {
-      throw error
-    }
+    await refreshProfile()
 
     toast.add({
       title: 'Welkom terug!',

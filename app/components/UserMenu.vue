@@ -5,8 +5,7 @@ defineProps<{
   iconOnly?: boolean
 }>()
 
-const supabase = useSupabaseClient()
-const { accountType, avatarUrl, email, fullName, isLoadingProfile } = useCurrentUser()
+const { accountType, avatarUrl, email, fullName, isLoadingProfile, refreshProfile } = useCurrentUser()
 
 const displayName = computed<string>(() => fullName.value ?? email.value ?? 'User account')
 const accountLabel = computed<string>(() => {
@@ -25,7 +24,10 @@ const triggerAvatar = computed<AvatarProps>(() => ({
 }))
 
 async function handleSignOut(): Promise<void> {
-  await supabase.auth.signOut()
+  await $fetch('/api/auth/logout', {
+    method: 'POST'
+  })
+  await refreshProfile()
   await navigateTo('/auth/sign-in')
 }
 
