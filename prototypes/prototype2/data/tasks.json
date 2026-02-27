@@ -1,0 +1,204 @@
+[
+  {
+    "id": "mood-checkin",
+    "title": "Mood Check-in",
+    "description": "A quick check-in to notice how you're feeling right now.",
+    "category": "mood",
+    "energyLevels": ["low", "medium", "high"],
+    "estimatedMinutes": 1,
+    "formats": {
+      "interactive": {
+        "type": "mood",
+        "prompt": "Right now, I feel...",
+        "options": [
+          { "emoji": "😊", "label": "Great", "value": 5 },
+          { "emoji": "🙂", "label": "Good", "value": 4 },
+          { "emoji": "😐", "label": "Okay", "value": 3 },
+          { "emoji": "😔", "label": "Low", "value": 2 },
+          { "emoji": "😢", "label": "Struggling", "value": 1 }
+        ],
+        "followUp": "What might be contributing to this feeling?"
+      },
+      "text": {
+        "content": "## Why Mood Tracking Matters\n\nResearch shows that simply noticing and naming your emotions can reduce their intensity by up to 50%. This is called **affect labeling** — and it works because it shifts brain activity from the emotional centers (amygdala) to the rational thinking areas (prefrontal cortex).\n\nYou don't need to analyze or fix anything. Just notice.\n\n### How are you feeling right now?\n\nTake a breath, and choose the option that feels closest to your current state. There are no wrong answers."
+      },
+      "audio": {
+        "description": "[Audio: Guided mood check-in, 30 seconds]\n\n\"Take a moment to pause whatever you're doing. Close your eyes if that feels comfortable. Take one slow breath in... and out. Now ask yourself: how am I feeling right now? Not how I should feel, or how I felt this morning — but right now, in this moment. When you're ready, open your eyes and select the option that feels closest to your experience.\""
+      }
+    },
+    "feedbackInsight": "Noticing how you feel is the first step toward understanding yourself. That takes real courage."
+  },
+  {
+    "id": "breathing-exercise",
+    "title": "Breathing Exercise",
+    "description": "A calming box breathing exercise to help regulate your nervous system.",
+    "category": "breathing",
+    "energyLevels": ["low", "medium", "high"],
+    "estimatedMinutes": 3,
+    "formats": {
+      "audio": {
+        "description": "[Audio: Box Breathing Guide, 3 minutes]\n\n\"Welcome to this breathing exercise. We'll practice box breathing — a technique used by Navy SEALs to stay calm under pressure. Here's how it works: breathe in for 4 seconds, hold for 4 seconds, breathe out for 4 seconds, and hold for 4 seconds. We'll do 4 complete cycles together. Let's begin... Breathe in... 2... 3... 4... Hold... 2... 3... 4... Breathe out... 2... 3... 4... Hold... 2... 3... 4...\""
+      },
+      "video": {
+        "url": "https://www.youtube.com/embed/tEmt1Znux58"
+      },
+      "text": {
+        "content": "## Box Breathing Technique\n\nBox breathing (also called square breathing) is a powerful stress-relief technique used by athletes, therapists, and even military personnel.\n\n### How It Works\n\nImagine tracing the sides of a square:\n\n1. **Breathe In** (4 seconds) — Fill your lungs slowly and completely\n2. **Hold** (4 seconds) — Keep the air in, stay relaxed\n3. **Breathe Out** (4 seconds) — Release slowly and steadily\n4. **Hold** (4 seconds) — Rest before the next cycle\n\n### Instructions\n\n- Sit comfortably with your feet on the floor\n- Close your eyes or soften your gaze\n- Complete **4 full cycles** (about 3 minutes total)\n- If 4 seconds feels too long, start with 3 seconds\n\n### Why It Works\n\nSlow, rhythmic breathing activates your **parasympathetic nervous system** — your body's built-in calming response. This lowers heart rate, reduces cortisol, and helps you feel more grounded."
+      }
+    },
+    "feedbackInsight": "You just activated your parasympathetic nervous system. Your body is already responding — even if you can't feel it yet."
+  },
+  {
+    "id": "micro-journaling",
+    "title": "Micro Journaling",
+    "description": "Capture your day in just a few words. No pressure, no perfection.",
+    "category": "journaling",
+    "energyLevels": ["low", "medium"],
+    "estimatedMinutes": 2,
+    "formats": {
+      "text": {
+        "content": "## Micro Journaling\n\nYou don't need to write a novel. Sometimes one sentence is enough to help your brain process the day.\n\n### Your Prompt\n\n**Describe today in just one sentence.**\n\nDon't overthink it. Whatever comes to mind first is the right answer."
+      },
+      "interactive": {
+        "type": "journaling",
+        "prompts": [
+          { "label": "One word for today", "placeholder": "e.g., restless, calm, foggy..." },
+          { "label": "One thing I noticed", "placeholder": "Something you observed today..." },
+          { "label": "One thing I need", "placeholder": "What do you need right now?" }
+        ]
+      },
+      "audio": {
+        "description": "[Audio: Guided Micro Journaling, 1 minute]\n\n\"Close your eyes for a moment. Think about your day so far — not everything, just what stands out. Maybe it's a feeling, a conversation, or something you noticed. Don't judge it, just let it surface. When you're ready, open your eyes and write one sentence about it. Just one sentence. That's all you need.\""
+      }
+    },
+    "feedbackInsight": "Writing even one sentence helps your brain organize scattered thoughts. Small steps matter."
+  },
+  {
+    "id": "deep-journaling",
+    "title": "Deep Journaling",
+    "description": "A guided reflection on your week — challenges, strengths, and intentions.",
+    "category": "journaling",
+    "energyLevels": ["medium", "high"],
+    "estimatedMinutes": 8,
+    "formats": {
+      "text": {
+        "content": "## Weekly Reflection\n\nTake a few minutes to look back on your week with curiosity — not judgment.\n\n### Prompts\n\n**What challenged you this week?**\nThink about moments that felt difficult. What made them hard?\n\n**What gave you strength?**\nEven small things count — a good conversation, a moment of peace, getting through something tough.\n\n**What would you do differently?**\nNot to criticize yourself, but to learn. What would future-you appreciate?\n\nTake your time. There's no word limit and no wrong answers."
+      },
+      "interactive": {
+        "type": "journaling",
+        "prompts": [
+          { "label": "Challenges this week", "placeholder": "What felt difficult or overwhelming?", "multiline": true },
+          { "label": "Moments of strength", "placeholder": "What are you proud of, even if it's small?", "multiline": true },
+          { "label": "One thing to try next week", "placeholder": "A small intention for the week ahead..." }
+        ]
+      },
+      "audio": {
+        "description": "[Audio: Guided Weekly Reflection, 5 minutes]\n\n\"Find a comfortable position and take a deep breath. We're going to spend a few minutes reflecting on your week. Not to judge — but to understand.\n\nFirst, think about what challenged you this week. What moments felt hard? Take a moment to write about that... [pause 60s]\n\nNow, shift your attention to what gave you strength. Even small moments count — a kind word, a completed task, a moment where you chose to keep going. Write about that... [pause 60s]\n\nFinally, think about next week. What's one small thing you'd like to try? Not a big change — just one intention. Write it down... [pause 30s]\n\nWell done. Reflection is an act of self-care.\""
+      }
+    },
+    "feedbackInsight": "Reflection is how we turn experiences into wisdom. You're building self-awareness with every word."
+  },
+  {
+    "id": "psychoeducation-thought-patterns",
+    "title": "Understanding Thought Patterns",
+    "description": "Learn about common thinking traps and how to recognize them.",
+    "category": "psychoeducation",
+    "energyLevels": ["medium", "high"],
+    "estimatedMinutes": 5,
+    "formats": {
+      "text": {
+        "content": "## Understanding Thought Patterns\n\nOur brains are wired to take shortcuts. Most of the time, these shortcuts help us navigate the world efficiently. But sometimes, they create **cognitive distortions** — thinking patterns that feel true but don't reflect reality.\n\n### The Three Most Common Thought Traps\n\n#### 1. All-or-Nothing Thinking\nSeeing things in black and white, with no middle ground.\n\n- **Example:** \"I didn't finish my entire to-do list, so the whole day was wasted.\"\n- **Reality:** Completing even one task is progress.\n\n#### 2. Catastrophizing\nAssuming the worst possible outcome will happen.\n\n- **Example:** \"I made a mistake at work — I'm definitely going to get fired.\"\n- **Reality:** Everyone makes mistakes. One error rarely leads to the worst-case scenario.\n\n#### 3. Mind Reading\nAssuming you know what others are thinking (usually something negative about you).\n\n- **Example:** \"My friend didn't text back — they must be angry at me.\"\n- **Reality:** People are busy. Their silence usually isn't about you.\n\n### What To Do About It\n\nThe first step is simply **noticing** when these patterns show up. You don't need to fix them immediately — just label them: \"That's all-or-nothing thinking\" or \"I'm catastrophizing right now.\"\n\nNaming the pattern weakens its power over you."
+      },
+      "audio": {
+        "description": "[Audio: Thought Patterns Podcast, 4 minutes]\n\n\"Have you ever had a bad moment and felt like your entire day was ruined? Or assumed someone was mad at you because they didn't reply to your message? If so, you've experienced what psychologists call cognitive distortions — thinking patterns that feel completely real but don't actually reflect reality.\n\nToday, let's talk about three of the most common ones.\n\nThe first is all-or-nothing thinking. This is when you see things in black and white. 'If I can't do it perfectly, why bother?' or 'I ate one cookie, so my whole diet is ruined.' The reality is, life exists in shades of gray.\n\nThe second is catastrophizing — jumping to the worst possible conclusion. 'I made a small mistake at work, so I'm definitely going to get fired.' Our brains evolved to watch for danger, but sometimes they overcorrect.\n\nThe third is mind reading — assuming you know what someone else is thinking. 'She looked at me funny, she must think I'm weird.' In truth, most people are too busy thinking about themselves to judge you.\n\nThe good news? Just noticing these patterns is half the battle. Next time you catch yourself in one, try simply naming it: 'That's catastrophizing.' You'll be surprised how much power that takes away from the thought.\""
+      },
+      "video": {
+        "url": "https://www.youtube.com/embed/CIGp1x0rqbA"
+      }
+    },
+    "feedbackInsight": "Understanding your thought patterns gives you power over them. Knowledge is one of your strongest tools."
+  },
+  {
+    "id": "grounding-techniques",
+    "title": "Grounding Techniques",
+    "description": "Learn and practice the 5-4-3-2-1 technique to feel more present.",
+    "category": "video-lesson",
+    "energyLevels": ["high"],
+    "estimatedMinutes": 7,
+    "formats": {
+      "video": {
+        "url": "https://www.youtube.com/embed/30VMIEmA114"
+      },
+      "text": {
+        "content": "## The 5-4-3-2-1 Grounding Technique\n\nGrounding techniques help you reconnect with the present moment when you're feeling overwhelmed, anxious, or disconnected. The 5-4-3-2-1 method uses your five senses to anchor you in the here and now.\n\n### How To Do It\n\nFind a comfortable position. Take a slow, deep breath. Then:\n\n#### 5 — Things You Can SEE\nLook around and name five things you can see. They can be anything — a lamp, a crack in the ceiling, the color of your shirt.\n\n#### 4 — Things You Can TOUCH\nNotice four things you can physically feel. The fabric of your clothes, the chair beneath you, the temperature of the air.\n\n#### 3 — Things You Can HEAR\nListen for three sounds. Traffic, birds, the hum of an appliance, your own breathing.\n\n#### 2 — Things You Can SMELL\nIdentify two scents. If you can't smell anything, move to something — a candle, your sleeve, a cup of coffee.\n\n#### 1 — Thing You Can TASTE\nNotice one taste in your mouth. Even if it's just \"nothing\" or \"water\" — that counts.\n\n### Why It Works\n\nAnxiety pulls you into the future. Rumination pulls you into the past. Grounding brings you back to the **only moment that actually exists** — right now."
+      },
+      "audio": {
+        "description": "[Audio: Guided 5-4-3-2-1 Exercise, 5 minutes]\n\n\"Let's practice grounding together. Sit comfortably and take a deep breath.\n\nStart by looking around you. Name five things you can see. Take your time... [pause 20s]\n\nNow, notice four things you can touch or feel. The texture of your clothes, the ground under your feet, the air on your skin... [pause 15s]\n\nListen carefully. What three sounds can you hear? Even quiet ones count... [pause 15s]\n\nTake a breath through your nose. Can you identify two things you can smell?... [pause 10s]\n\nFinally, notice one thing you can taste. Even if it's just the inside of your mouth... [pause 5s]\n\nTake one more deep breath. You are here. You are present. Well done.\""
+      },
+      "interactive": {
+        "type": "grounding",
+        "senses": [
+          { "sense": "see", "icon": "👁️", "count": 5, "label": "Things you can SEE" },
+          { "sense": "touch", "icon": "✋", "count": 4, "label": "Things you can TOUCH" },
+          { "sense": "hear", "icon": "👂", "count": 3, "label": "Things you can HEAR" },
+          { "sense": "smell", "icon": "👃", "count": 2, "label": "Things you can SMELL" },
+          { "sense": "taste", "icon": "👅", "count": 1, "label": "Thing you can TASTE" }
+        ]
+      }
+    },
+    "feedbackInsight": "Grounding brings you back to the present moment. You now have a tool you can use anywhere, anytime."
+  },
+  {
+    "id": "behavioral-activation",
+    "title": "Behavioral Activation",
+    "description": "Plan one enjoyable activity for tomorrow to build positive momentum.",
+    "category": "behavioral",
+    "energyLevels": ["high"],
+    "estimatedMinutes": 5,
+    "formats": {
+      "interactive": {
+        "type": "behavioral",
+        "fields": [
+          { "key": "activity", "label": "Activity name", "placeholder": "e.g., Walk in the park, Call a friend, Cook a new recipe..." },
+          { "key": "when", "label": "When will you do it?", "placeholder": "e.g., Tomorrow morning, After lunch..." },
+          { "key": "who", "label": "Who with? (optional)", "placeholder": "e.g., Alone, With a friend, With my partner..." },
+          { "key": "why", "label": "Why does this matter to you?", "placeholder": "What makes this activity meaningful or enjoyable?", "multiline": true }
+        ]
+      },
+      "text": {
+        "content": "## Behavioral Activation\n\nWhen we feel low, we often stop doing the things that bring us joy. This creates a cycle: we feel bad, so we withdraw, which makes us feel worse.\n\n**Behavioral activation** breaks this cycle by planning small, enjoyable activities — even when motivation is low.\n\n### The Key Insight\n\nMotivation doesn't always come first. Sometimes, **action creates motivation** — not the other way around.\n\n### Your Task\n\nPlan **one enjoyable activity** for tomorrow. It doesn't have to be big.\n\n- **What** will you do?\n- **When** will you do it?\n- **Who** will you do it with (if anyone)?\n- **Why** does it matter to you?\n\nWriting it down makes it 42% more likely to happen (according to research by Dr. Gail Matthews)."
+      },
+      "audio": {
+        "description": "[Audio: Guided Activity Planning, 3 minutes]\n\n\"When we're feeling low, our instinct is to withdraw — cancel plans, stay in bed, avoid effort. But research shows that doing enjoyable activities, even small ones, can break the cycle of low mood.\n\nSo let's plan one thing for tomorrow. It doesn't have to be ambitious. A short walk, calling someone you like, cooking something simple — anything that might bring even a small spark of pleasure.\n\nThink about it... what comes to mind?... [pause 15s]\n\nNow, when will you do it? Morning, afternoon, evening?... [pause 10s]\n\nWill anyone join you, or will this be a solo moment?... [pause 5s]\n\nFinally, why does this matter? Even a small reason is enough... [pause 10s]\n\nGreat. Write it down if you can. Putting it in writing makes it much more likely to happen.\""
+      }
+    },
+    "feedbackInsight": "Planning something positive creates anticipation — and anticipation itself can lift your mood."
+  },
+  {
+    "id": "gratitude-exercise",
+    "title": "Gratitude Exercise",
+    "description": "Notice three good things in your day, no matter how small.",
+    "category": "gratitude",
+    "energyLevels": ["medium", "high"],
+    "estimatedMinutes": 3,
+    "formats": {
+      "text": {
+        "content": "## Gratitude Practice\n\nGratitude isn't about ignoring problems or forcing positivity. It's about **training your brain to also notice the good** — because our minds naturally focus on threats and negatives (it's called the negativity bias).\n\n### Your Task\n\nList **three things you're grateful for today**. They can be as small as:\n\n- \"The coffee was good this morning\"\n- \"I had a moment of quiet\"\n- \"My bed is warm\"\n\nThe smaller and more specific, the better. Research by Dr. Robert Emmons shows that regular gratitude practice can increase wellbeing by 25%."
+      },
+      "interactive": {
+        "type": "gratitude",
+        "prompt": "Three things I'm grateful for today:",
+        "count": 3,
+        "placeholders": [
+          "Something that made you smile...",
+          "Something you're glad you have...",
+          "A small moment that was good..."
+        ]
+      },
+      "audio": {
+        "description": "[Audio: Gratitude Meditation, 2 minutes]\n\n\"Settle into a comfortable position. Close your eyes if that feels right.\n\nThink about today — or yesterday, if it's early. Scan through the hours like you're scrolling through a photo album.\n\nWhat's one thing that made you smile? Even a tiny thing... Hold that in your mind for a moment... [pause 10s]\n\nNow think of something you're glad you have. A person, a place, a possession, an ability... [pause 10s]\n\nFinally, recall one small moment that was simply... good. Not extraordinary — just good... [pause 10s]\n\nThree things. That's all it takes. When you're ready, open your eyes and write them down.\""
+      }
+    },
+    "feedbackInsight": "Gratitude practice can physically rewire neural pathways over time. You're training your brain to notice the good."
+  }
+]
