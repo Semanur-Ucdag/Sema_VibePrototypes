@@ -1,0 +1,225 @@
+{
+  "id": "qids-sr",
+  "title": "Quick Inventory of Depressive Symptomatology (Self-Report)",
+  "shortTitle": "QIDS-SR",
+  "reference": "©2000, A. John Rush, M.D.",
+  "instruction": "Please select the one response to each item that best describes you for the past seven days.",
+  "scoring": {
+    "method": "domain_max",
+    "domains": [
+      { "name": "Sleep", "items": [1, 2, 3, 4], "rule": "highest" },
+      { "name": "Sad Mood", "items": [5], "rule": "single" },
+      { "name": "Appetite/Weight", "items": [6, 7, 8, 9], "rule": "highest" },
+      { "name": "Concentration", "items": [10], "rule": "single" },
+      { "name": "Self-View", "items": [11], "rule": "single" },
+      { "name": "Suicidal Ideation", "items": [12], "rule": "single" },
+      { "name": "Interest", "items": [13], "rule": "single" },
+      { "name": "Energy", "items": [14], "rule": "single" },
+      { "name": "Psychomotor", "items": [15, 16], "rule": "highest" }
+    ],
+    "totalRange": [0, 27],
+    "severity": [
+      { "min": 0, "max": 5, "label": "Normal" },
+      { "min": 6, "max": 10, "label": "Mild" },
+      { "min": 11, "max": 15, "label": "Moderate" },
+      { "min": 16, "max": 20, "label": "Severe" },
+      { "min": 21, "max": 27, "label": "Very Severe" }
+    ]
+  },
+  "questions": [
+    {
+      "id": 1,
+      "domain": "Sleep",
+      "text": "Falling Asleep",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I never take longer than 30 minutes to fall asleep." },
+        { "value": 1, "text": "I take at least 30 minutes to fall asleep, less than half the time." },
+        { "value": 2, "text": "I take at least 30 minutes to fall asleep, more than half the time." },
+        { "value": 3, "text": "I take more than 60 minutes to fall asleep, more than half the time." }
+      ]
+    },
+    {
+      "id": 2,
+      "domain": "Sleep",
+      "text": "Sleep During the Night",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I do not wake up at night." },
+        { "value": 1, "text": "I have a restless, light sleep with a few brief awakenings each night." },
+        { "value": 2, "text": "I wake up at least once a night, but I go back to sleep easily." },
+        { "value": 3, "text": "I awaken more than once a night and stay awake for 20 minutes or more, more than half the time." }
+      ]
+    },
+    {
+      "id": 3,
+      "domain": "Sleep",
+      "text": "Waking Up Too Early",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "Most of the time, I awaken no more than 30 minutes before I need to get up." },
+        { "value": 1, "text": "More than half the time, I awaken more than 30 minutes before I need to get up." },
+        { "value": 2, "text": "I almost always awaken at least one hour or so before I need to, but I go back to sleep eventually." },
+        { "value": 3, "text": "I awaken at least one hour before I need to, and can't go back to sleep." }
+      ]
+    },
+    {
+      "id": 4,
+      "domain": "Sleep",
+      "text": "Sleeping Too Much",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I sleep no longer than 7-8 hours/night, without napping during the day." },
+        { "value": 1, "text": "I sleep no longer than 10 hours in a 24-hour period including naps." },
+        { "value": 2, "text": "I sleep no longer than 12 hours in a 24-hour period including naps." },
+        { "value": 3, "text": "I sleep longer than 12 hours in a 24-hour period including naps." }
+      ]
+    },
+    {
+      "id": 5,
+      "domain": "Sad Mood",
+      "text": "Feeling Sad",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I do not feel sad." },
+        { "value": 1, "text": "I feel sad less than half the time." },
+        { "value": 2, "text": "I feel sad more than half the time." },
+        { "value": 3, "text": "I feel sad nearly all of the time." }
+      ]
+    },
+    {
+      "id": 6,
+      "domain": "Appetite/Weight",
+      "text": "Decreased Appetite",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "There is no change in my usual appetite." },
+        { "value": 1, "text": "I eat somewhat less often or lesser amounts of food than usual." },
+        { "value": 2, "text": "I eat much less than usual and only with personal effort." },
+        { "value": 3, "text": "I rarely eat within a 24-hour period, and only with extreme personal effort or when others persuade me to eat." }
+      ]
+    },
+    {
+      "id": 7,
+      "domain": "Appetite/Weight",
+      "text": "Increased Appetite",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "There is no change from my usual appetite." },
+        { "value": 1, "text": "I feel a need to eat more frequently than usual." },
+        { "value": 2, "text": "I regularly eat more often and/or greater amounts of food than usual." },
+        { "value": 3, "text": "I feel driven to overeat both at mealtime and between meals." }
+      ]
+    },
+    {
+      "id": 8,
+      "domain": "Appetite/Weight",
+      "text": "Decreased Weight (Within the Last Two Weeks)",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I have not had a change in my weight." },
+        { "value": 1, "text": "I feel as if I've had a slight weight loss." },
+        { "value": 2, "text": "I have lost 2 pounds or more." },
+        { "value": 3, "text": "I have lost 5 pounds or more." }
+      ]
+    },
+    {
+      "id": 9,
+      "domain": "Appetite/Weight",
+      "text": "Increased Weight (Within the Last Two Weeks)",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I have not had a change in my weight." },
+        { "value": 1, "text": "I feel as if I've had a slight weight gain." },
+        { "value": 2, "text": "I have gained 2 pounds or more." },
+        { "value": 3, "text": "I have gained 5 pounds or more." }
+      ]
+    },
+    {
+      "id": 10,
+      "domain": "Concentration",
+      "text": "Concentration/Decision Making",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "There is no change in my usual capacity to concentrate or make decisions." },
+        { "value": 1, "text": "I occasionally feel indecisive or find that my attention wanders." },
+        { "value": 2, "text": "Most of the time, I struggle to focus my attention or to make decisions." },
+        { "value": 3, "text": "I cannot concentrate well enough to read or cannot make even minor decisions." }
+      ]
+    },
+    {
+      "id": 11,
+      "domain": "Self-View",
+      "text": "View of Myself",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I see myself as equally worthwhile and deserving as other people." },
+        { "value": 1, "text": "I am more self-blaming than usual." },
+        { "value": 2, "text": "I largely believe that I cause problems for others." },
+        { "value": 3, "text": "I think almost constantly about major and minor defects in myself." }
+      ]
+    },
+    {
+      "id": 12,
+      "domain": "Suicidal Ideation",
+      "text": "Thoughts of Death or Suicide",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I do not think of suicide or death." },
+        { "value": 1, "text": "I feel that life is empty or wonder if it's worth living." },
+        { "value": 2, "text": "I think of suicide or death several times a week for several minutes." },
+        { "value": 3, "text": "I think of suicide or death several times a day in some detail, or I have made specific plans for suicide or have actually tried to take my life." }
+      ]
+    },
+    {
+      "id": 13,
+      "domain": "Interest",
+      "text": "General Interest",
+      "personalizable": true,
+      "personalizationTemplate": "I know you enjoy {hobby}. Over the past week, how interested have you been in activities like {hobby}?",
+      "options": [
+        { "value": 0, "text": "There is no change from usual in how interested I am in other people or activities." },
+        { "value": 1, "text": "I notice that I am less interested in people or activities." },
+        { "value": 2, "text": "I find I have interest in only one or two of my formerly pursued activities." },
+        { "value": 3, "text": "I have virtually no interest in formerly pursued activities." }
+      ]
+    },
+    {
+      "id": 14,
+      "domain": "Energy",
+      "text": "Energy Level",
+      "personalizable": true,
+      "personalizationTemplate": "Thinking about activities you enjoy, like {hobby} — how has your energy been this past week?",
+      "options": [
+        { "value": 0, "text": "There is no change in my usual level of energy." },
+        { "value": 1, "text": "I get tired more easily than usual." },
+        { "value": 2, "text": "I have to make a big effort to start or finish my usual daily activities." },
+        { "value": 3, "text": "I really cannot carry out most of my usual daily activities because I just don't have the energy." }
+      ]
+    },
+    {
+      "id": 15,
+      "domain": "Psychomotor",
+      "text": "Feeling Slowed Down",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I think, speak, and move at my usual rate of speed." },
+        { "value": 1, "text": "I find that my thinking is slowed down or my voice sounds dull or flat." },
+        { "value": 2, "text": "It takes me several seconds to respond to most questions and I'm sure my thinking is slowed." },
+        { "value": 3, "text": "I am often unable to respond to questions without extreme effort." }
+      ]
+    },
+    {
+      "id": 16,
+      "domain": "Psychomotor",
+      "text": "Feeling Restless",
+      "personalizable": false,
+      "options": [
+        { "value": 0, "text": "I do not feel restless." },
+        { "value": 1, "text": "I'm often fidgety, wringing my hands, or need to shift how I am sitting." },
+        { "value": 2, "text": "I have impulses to move about and am quite restless." },
+        { "value": 3, "text": "At times, I am unable to stay seated and need to pace around." }
+      ]
+    }
+  ]
+}
