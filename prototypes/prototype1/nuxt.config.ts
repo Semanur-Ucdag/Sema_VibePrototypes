@@ -6,5 +6,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt'
   ],
 
+  devServer: { port: 3001 },
+
   css: ['~/../../app/assets/css/main.css']
 })

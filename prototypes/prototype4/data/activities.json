@@ -1,0 +1,18 @@
+[
+  { "id": "walking", "name": "Walking", "category": "Physical", "icon": "i-lucide-footprints" },
+  { "id": "swimming", "name": "Swimming", "category": "Physical", "icon": "i-lucide-waves" },
+  { "id": "stretching", "name": "Stretching", "category": "Physical", "icon": "i-lucide-accessibility" },
+  { "id": "dancing", "name": "Dancing", "category": "Physical", "icon": "i-lucide-music" },
+  { "id": "reading", "name": "Reading", "category": "Creative", "icon": "i-lucide-book-open" },
+  { "id": "drawing", "name": "Drawing", "category": "Creative", "icon": "i-lucide-palette" },
+  { "id": "cooking", "name": "Cooking", "category": "Creative", "icon": "i-lucide-chef-hat" },
+  { "id": "gardening", "name": "Gardening", "category": "Creative", "icon": "i-lucide-flower-2" },
+  { "id": "calling-friend", "name": "Calling a Friend", "category": "Social", "icon": "i-lucide-phone-call" },
+  { "id": "meeting-someone", "name": "Meeting Someone", "category": "Social", "icon": "i-lucide-users" },
+  { "id": "helping-others", "name": "Helping Others", "category": "Social", "icon": "i-lucide-hand-helping" },
+  { "id": "group-activity", "name": "Group Activity", "category": "Social", "icon": "i-lucide-party-popper" },
+  { "id": "cleaning", "name": "Cleaning", "category": "Self-Care", "icon": "i-lucide-sparkles" },
+  { "id": "organizing", "name": "Organizing", "category": "Self-Care", "icon": "i-lucide-layout-grid" },
+  { "id": "journaling", "name": "Journaling", "category": "Self-Care", "icon": "i-lucide-pen-line" },
+  { "id": "meditation", "name": "Meditation", "category": "Self-Care", "icon": "i-lucide-brain" }
+]

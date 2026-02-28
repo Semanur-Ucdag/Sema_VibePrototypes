@@ -1,0 +1,72 @@
+[
+  {
+    "id": "t1",
+    "text": "I always fail at everything I try.",
+    "type": "distortion",
+    "distortionType": "All-or-Nothing Thinking",
+    "icon": "i-lucide-cloud-lightning"
+  },
+  {
+    "id": "t2",
+    "text": "Nobody truly cares about me — they're just pretending.",
+    "type": "distortion",
+    "distortionType": "Mind Reading",
+    "icon": "i-lucide-eye-off"
+  },
+  {
+    "id": "t3",
+    "text": "It's okay to have bad days — they don't define me.",
+    "type": "balanced",
+    "distortionType": null,
+    "icon": "i-lucide-cloud-sun"
+  },
+  {
+    "id": "t4",
+    "text": "If I can't do it perfectly, there's no point in trying at all.",
+    "type": "distortion",
+    "distortionType": "All-or-Nothing Thinking",
+    "icon": "i-lucide-ban"
+  },
+  {
+    "id": "t5",
+    "text": "I am doing the best I can with what I have right now.",
+    "type": "balanced",
+    "distortionType": null,
+    "icon": "i-lucide-heart-handshake"
+  },
+  {
+    "id": "t6",
+    "text": "One bad thing happened, so everything is going to fall apart.",
+    "type": "distortion",
+    "distortionType": "Catastrophizing",
+    "icon": "i-lucide-flame"
+  },
+  {
+    "id": "t7",
+    "text": "Struggling doesn't mean I'm weak — it means I'm still going.",
+    "type": "balanced",
+    "distortionType": null,
+    "icon": "i-lucide-sunrise"
+  },
+  {
+    "id": "t8",
+    "text": "I should be able to handle this without any help.",
+    "type": "distortion",
+    "distortionType": "Should Statements",
+    "icon": "i-lucide-shield-alert"
+  },
+  {
+    "id": "t9",
+    "text": "I feel hopeless, so my situation must truly be hopeless.",
+    "type": "distortion",
+    "distortionType": "Emotional Reasoning",
+    "icon": "i-lucide-cloud-drizzle"
+  },
+  {
+    "id": "t10",
+    "text": "Small steps still count — progress doesn't have to be dramatic.",
+    "type": "balanced",
+    "distortionType": null,
+    "icon": "i-lucide-footprints"
+  }
+]
